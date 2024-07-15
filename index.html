@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORDUCT QUANTITY COUNTER</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="card">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.iufNWtqR37cpaBpC97G1tgHaEu&pid=Api&P=0&h=180">
+
+        <div class="quantity-btn-container">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.Cdn3NQ10-okwoheoTLbVTAHaHa&pid=Api&P=0&h=180" class="btn-quantity" onclick="handleQuantitychange('dec')"/>
+
+              <span class="quantity" id="quantity">1</span> 
+
+            <img src="https://tse4.mm.bing.net/th?id=OIP.WUcjp5yqYi7EjDYedkKC-QHaHa&pid=Api&P=0&h=180" class="btn-quantity" onclick="handleQuantitychange('inc')"/>
+        </div>
+        <button class="btn">Buy Now</button>
+    </div>
+
+    <script>
+       function handleQuantitychange(action){
+        const quantityElement = document.getElementById("quantity")
+        let quantity = parseInt(quantityElement.innerText);
+        if(quantity==1 && action=='dec'){
+            alert('Quantity cannot be less than 1')
+            return
+        }
+        else if(quantity==5 && action=='inc'){
+             alert('Quantity cannot be more than 5')
+             return
+        }
+        quantityElement.innerText = action=='inc'? ++quantity: --quantity
+    }
+    </script>
+   
+</body>
+</html>
